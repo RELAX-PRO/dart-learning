@@ -1,73 +1,70 @@
-# *🎯 Day 5 — Dart Keywords*
-## *1️⃣ Why Keywords Exist*
----
-Imagine you’re in a workshop with a set of special tools. Some tools are reserved for the workshop’s master — you can use them, but you can’t rename them or repurpose them for something else. In Dart, keywords are those reserved words — they have a special meaning to the Dart compiler, and you can’t use them as variable names, function names, or identifiers.
----
-## *2️⃣ The Why*
----
--Keywords prevent confusion between your code and Dart’s built‑in commands.
--They make the language predictable — if will always mean a conditional, not a variable name.
----
----
-## *3️⃣ Dart Keywords List*
-Dart has reserved words that are split into two categories:
+# 🎯 Day 5 — Dart Keywords
 
-##A. Reserved Words (can’t be used at all)
+## 1️⃣ Why keywords exist
 
-``` Keywords 
-abstract, else, import, super, as, enum, in, switch,
-assert, export, interface, sync, async, extends, is, this,
-await, extension, late, throw, break, external, library, true,
-case, factory, mixin, try, catch, false, new, typedef,
-class, final, null, var, const, finally, on, void,
-continue, for, operator, while, covariant, Function, part, with,
-default, get, required, yield, deferred, hide, rethrow, do,
-if, return, dynamic, implements, set ```
+Imagine you’re in a workshop with a set of special tools. Some tools are reserved for the workshop’s master — you can use them, but you can’t rename them or repurpose them for something else. In Dart, keywords are those reserved words — they have a special meaning to the Dart compiler, and you can’t use them as variable names, function names, or identifiers in the places where they are reserved.
 
-##B. Contextual Keywords
+## 2️⃣ The purpose
 
-These are only reserved in certain contexts (you can use them as identifiers elsewhere, but it’s not recommended):
-``` Keywords
-show, hide, sync, async, on, required
-```
+- Keywords prevent confusion between your code and Dart’s built‑in commands.
+- They make the language predictable — `if` will always mean a conditional, not a variable name.
+
+## 3️⃣ A short list of common Dart keywords
+
+Below are some common keywords you will see often. This is not an exhaustive list — see the official docs for the full list.
+
+- `abstract`, `class`, `const`, `final`, `var`, `dynamic`
+- `if`, `else`, `for`, `while`, `switch`, `case`, `return`
+- `import`, `library`, `part`, `export`
+- `async`, `await`, `yield` (used with async and generators)
+- `try`, `catch`, `finally`, `throw`
+
+Official, complete list of reserved words: https://dart.dev/guides/language/language-tour#keywords
+
+> Note: Dart also has contextual keywords — words that are only reserved in particular contexts (for example, `required` is used in parameter lists). It’s safest to avoid using these as variable or identifier names even where they might be allowed.
+
 ---
----
-## *4️⃣ Step‑by‑Step Understanding*
-``` Dart 
+
+## 4️⃣ Example: keywords in code
+
+```dart
 void main() {
-  // ❌ Invalid: using a keyword as a variable name
+  // ❌ Invalid: using a keyword as an identifier
   // int class = 5; // ERROR: 'class' is a reserved word
 
-  // ✅ Valid: use a normal name
+  // ✅ Valid: use a descriptive variable name
   int studentClass = 5;
   print(studentClass);
 
-  // ❌ Invalid: using 'if' as a function name
-  // void if() {} // ERROR
-
-  // ✅ Valid: use descriptive names
-  void checkCondition() {}
+  // ✅ Functions should have descriptive names (not keywords)
+  void checkCondition() {
+    print('Checking...');
+  }
+  checkCondition();
 }
 ```
----
----
- ## *5️⃣ Checkpoints*
- *Checkpoint 1*: Try naming a variable var — Dart will reject it.
 
-*Checkpoint 2*: Try using async as a variable name — it might work outside async code, but it’s bad practice.
+---
 
-*Checkpoint 3*: Notice that keywords are case‑sensitive — `Class` is not the same as `class`, but using it is still confusing.
+## 5️⃣ Checkpoints (quick practice)
+
+1. Try naming a variable `var` — Dart will reject it (it's a keyword).
+2. Try using `async` as a variable name — it might be allowed outside async contexts, but avoid it.
+3. Keywords are case-sensitive: `Class` is not the same token as `class`, but using capitalized variants for identifiers is confusing and not recommended.
+
 ---
----
-##Day 5 Challenge
+
+## Day 5 Challenge
+
 1. Create a Dart file that:
+   - Declares variables with valid names.
+   - Shows at least two invalid keyword usages as commented-out lines (so the file still runs).
+   - Prints the valid variables.
 
--Declares variables with valid names.
+2. Add a short comment block listing at least 10 Dart keywords you learned.
 
--Shows at least two invalid keyword usages (commented out so the code runs).
-
--Prints the valid variables.
-
-2. Add a comment block listing at least 10 Dart keywords you’ve learned.
 ---
-# *💡 Pro Tip: Even if Dart allows a contextual keyword as a variable name, don’t do it — future Dart versions might make it fully reserved, breaking your code.*
+
+## 💡 Pro tip
+Even when a contextual keyword is allowed as an identifier in some places, don’t use it — future Dart versions or different contexts might make it fully reserved and break your code.
+
