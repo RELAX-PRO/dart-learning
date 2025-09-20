@@ -11,7 +11,9 @@ Imagine you’re in a workshop with a set of special tools. Some tools are reser
 ---
 ## *3️⃣ Dart Keywords List*
 Dart has reserved words that are split into two categories:
+
 ##A. Reserved Words (can’t be used at all)
+
 ``` Keywords 
 abstract, else, import, super, as, enum, in, switch,
 assert, export, interface, sync, async, extends, is, this,
@@ -21,7 +23,9 @@ class, final, null, var, const, finally, on, void,
 continue, for, operator, while, covariant, Function, part, with,
 default, get, required, yield, deferred, hide, rethrow, do,
 if, return, dynamic, implements, set ```
+
 ##B. Contextual Keywords
+
 These are only reserved in certain contexts (you can use them as identifiers elsewhere, but it’s not recommended):
 ``` Keywords
 show, hide, sync, async, on, required
