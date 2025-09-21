@@ -5,9 +5,7 @@
 The `final` safe: You can put anything inside it, but only once. You don’t have to decide what goes in until the day you lock it — but once it’s locked, it’s locked forever. This means the safe’s contents are decided at runtime (when your program is running).
 
 The `const` safe: This one is special — it’s built in the factory already locked. You must tell the factory exactly what’s inside before it’s even shipped to you. That means the contents are decided at compile time (before your program runs).
-
 ## 2️⃣ Step-by-Step Breakdown
-
 ### A. `final` — Runtime Single Assignment
 
 ``` dart 
@@ -20,7 +18,7 @@ void main() {
 ```
 >✅ Use when the value is set once but not known at compile time.
 ---
-## B. `const` — Compile-Time Constant
+### B. `const` — Compile-Time Constant
 ``` dart 
 void main() {
   const pi = 3.14159; // known at compile time
@@ -82,7 +80,6 @@ void main() {
 - ✅ Try using final for a value that changes later — Dart will reject reassignment.
 
 - ✅ Try creating two identical const objects — Dart will reuse the same memory.
-
 ## 6️⃣ Day 7 Challenge
 Create a Dart file that:
 
@@ -94,7 +91,6 @@ Create a Dart file that:
 
 4. Includes comments explaining why each declaration was chosen.
 
-
 ---
-## 💡 Pro Tip:
- Use const for values that never change and are known ahead of time — like math constants, UI layout values, or configuration flags. Use final when the value is fixed but only known during execution.
+## **💡 Pro Tip**:
+**Use const for values that never change and are known ahead of time — like math constants, UI layout values, or configuration flags. Use final when the value is fixed but only known during execution.**
