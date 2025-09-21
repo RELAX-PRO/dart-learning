@@ -51,7 +51,7 @@ Links and images
 ```
 [Google](https://google.com)
 
-![Alt text](path/to/image.png)
+![Alt text](pictures/grave%20sword.png)
 ```
 
 Blockquotes
