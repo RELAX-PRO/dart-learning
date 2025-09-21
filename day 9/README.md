@@ -57,6 +57,19 @@ var smile = '\u{1F600}'; // 😀
 - ✅ Use interpolation to print a calculation result.
 
 - ✅ Try .trim() and .replaceAll() on a string with extra spaces.
-### 💡 Pro Tip: Because Dart strings are immutable, methods like .toUpperCase() don’t change the original string — they return a new one. Always store the result if you need it.
+---
+## 8️⃣ Day 9 Challenge
+>Write a Dart program that:
 
+1. Stores your full name in a string.
+
+2. Prints it in uppercase, lowercase, and with spaces trimmed.
+
+3. Replaces your first name with "Mr./Ms." and prints the result.
+
+4. Uses interpolation to print: "My name has X characters." (excluding spaces).
+
+---
+
+## 💡 Pro Tip: Because Dart strings are immutable, methods like .toUpperCase() don’t change the original string — they return a new one. Always store the result if you need it.
 

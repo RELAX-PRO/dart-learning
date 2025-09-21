@@ -13,9 +13,9 @@ It can span multiple lines.''';
   print(rawString);
   
   // String interpolation
-  var name = 'IQ';
+  var nname = 'IQ';
   var age = 22;
-  print('My name is $name and I am $age years old.');
+  print('My name is $nname and I am $age years old.');
   print('Next year I will be ${age + 1}.');
 
   // Common string operations
@@ -41,4 +41,10 @@ It can span multiple lines.''';
   String smiley = 'Hello \u{1F600}'; // Unicode for 😀
   print(smiley);
 
+
+  // day 9 challenge 
+  var name = 'Mustafa Salah';
+  print('my name is ${name.toUpperCase()}/${name.toLowerCase()} and this is my name trimmed: ${name.trim()} and this is my first name replaced with: ${name.replaceAll("Mustafa", "MR")} \nalso my name length is: ${name.length}');
+  // note the function of trim is to remove any leading or trailing whitespace from the string.
+  
 }
