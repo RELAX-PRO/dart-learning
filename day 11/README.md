@@ -73,7 +73,7 @@ Write a Dart program that:
 
 4. Prints the list length and checks if a specific food is in the list.
 
-5. Loops through the list and prints each item.
+5. Loops through the list and prints each item.(special)
 --- 
 ## 💡 Pro Tip: Typed lists (List<int>, List<String>) give you compile‑time safety — they prevent accidental type mixing and make your code more predictable.
 
