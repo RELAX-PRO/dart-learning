@@ -154,7 +154,7 @@ Write a Dart program that:
 3. Uses a `for` loop to print the first 10 multiples of 3.
 
 4. Uses a `while` loop to count down from 5 to 1.
-
+--- 
 ### Control flow is like the government of your kingdom:
 
 - If/Else = judges making case‑by‑case decisions.
@@ -168,3 +168,12 @@ Write a Dart program that:
  - Do‑while = tavern keepers who always serve at least one drink.
 
 It’s the system that turns your kingdom from static to dynamic and alive.
+
+
+## 💡 Pro Tip:
+
+- Use **for** when you know the exact number of repetitions.
+
+- Use **while** when the number of repetitions depends on a condition.
+
+- Use **do‑while** when you need at least one guaranteed execution.
