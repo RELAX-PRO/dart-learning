@@ -162,3 +162,29 @@ var person = Person()
 
 - ✅ Chain multiple operations with the cascade operator.
 
+## Day 14 Challenge
+Write a Dart program that:
+
+1. Declares two integers and performs all arithmetic operators on them.
+
+2. Compares them with relational operators.
+
+3. Uses logical operators with two booleans.
+
+4. Demonstrates ?? and ??= with a nullable variable.
+
+5. Uses the cascade operator on a StringBuffer to build a sentence.
+
+---
+
+### Think of Dart’s journey so far as building a kingdom:
+
+- Variables are the citizens.
+
+- Data types (numbers, strings, booleans, lists, sets, maps) are the different professions.
+
+- Operators are the laws and tools that let citizens interact — trade, compare, combine, and build.
+
+      Without operators, the kingdom is silent. With them, it becomes alive with activity.
+---
+## 💡 Pro Tip: Operators are just syntactic sugar — shortcuts for methods under the hood. For example, `a + b` is really calling `a.+(b).` Knowing this helps when you start creating your own classes and overloading operators.
