@@ -1,68 +1,139 @@
-# 🎯 Day 10 — Booleans in Dart
-## 1️⃣ Story — The Gatekeeper
-Imagine your program as a huge castle with many gates. At each gate, there’s a guard holding a **yes/no card**:
+# 🎯 Day 10 — StringBuffer & Regular Expressions
 
-- If the card says **true**, the gate opens and the code inside runs.
+---
 
-- If the card says **false**, the gate stays shut and the code is skipped.
+## 1️⃣ Story — The Whiteboard and the Detective
 
-That guard’s card is a **boolean** — it can only ever be **true** or **false**. No “maybe,” no “sometimes” — just a binary decision.
-## 2️⃣ Declaring Booleans
+- Strings in Dart are **immutable**: every time you change them, Dart creates a new copy.  
+- Imagine writing on paper with a pen: if you want to add a word, you need to rewrite the whole essay on a new sheet. That’s how normal strings behave.  
+
+- **StringBuffer** is like a **whiteboard**: you can keep writing, erasing, and appending without wasting paper. It’s efficient when you need to build or modify text many times.  
+
+- Now, imagine you’re a detective searching through a giant book. You don’t just want to find the word “cat” — you want to find **patterns** like “any three‑letter animal name” or “all numbers.”  
+- That’s what **Regular Expressions (RegExp)** do: they let you search for **patterns**, not just exact words.
+
+---
+
+## 2️⃣ StringBuffer — Efficient String Building
+
+### Why Use It?
+
+- Normal strings (`+` or interpolation) create a **new copy** every time you modify them.  
+- In loops or large text generation, this wastes memory and slows performance.  
+- `StringBuffer` avoids this by keeping one buffer in memory and appending to it.
+
+---
+
+### Example 1 — Without StringBuffer
+
 ```dart
-bool isActive = true;
-bool isLoggedIn = false;
-```
-- `bool` is the type.
-
-- Values are always lowercase: `true` or `false`.
-## 3️⃣ Boolean Expressions
->Booleans often come from comparisons:
-```dart
-int age = 22;
-bool canVote = age >= 18; // true
-print(canVote);
-```
-## 4️⃣ Logical Operators (We will )
-> Booleans can be combined or inverted:
-```dart
-bool a = true;
-bool b = false;
-
-print(a && b); // AND → false
-print(a || b); // OR → true
-print(!a);     // NOT → false
-```
-## 5️⃣ Booleans in Control Flow
-``` dart
-bool isRaining = false;
-
-if (isRaining) {
-  print('Take an umbrella.');
-} else {
-  print('Enjoy the sunshine.');
+void main() {
+  var text = '';
+  for (int i = 0; i < 5; i++) {
+    text += 'Hello $i ';
+  }
+  print(text);
 }
 ```
-The if statement checks the boolean — it’s the guard deciding which path to take.
-## 6️⃣ Checkpoints
-- ✅ Try changing isRaining to true — see the output change.
 
-- ✅ Create a boolean from a comparison (5 > 3).
+- Every += creates a new string.
 
-- ✅ Combine two booleans with && and || to see how they interact.
-## 7️⃣ Day 10 Challenge
-Write a Dart program that:
+- If this loop ran 10,000 times, Dart would create 10,000 temporary strings.
 
-1. Stores whether you are currently studying (true or false).
+### Example 2 — With StringBuffer
 
-2. Stores whether you have completed today’s playlist video.
+```dart
+void main() {
+  var buffer = StringBuffer();
+  for (int i = 0; i < 5; i++) {
+    buffer.write('Hello $i ');
+  }
+  print(buffer.toString());
+}
+```
 
-3. Prints:
+- Only one buffer is created.
 
-- "Keep going!" if studying is true and video is false.
+- Much faster and memory‑efficient for large operations.
 
-- "Well done!" if both are true.
+### Useful Methods
 
-- "Start now!" if studying is false.
+```dart
+var buffer = StringBuffer();
+buffer.write('Hello');
+buffer.write(' World');
+buffer.writeln('!'); // adds newline
+print(buffer.toString()); // Hello World!
+buffer.clear(); // empties the buffer
+```
 
---- 
-## 💡 Pro Tip: Booleans are the foundation of conditions and loops. If you master boolean logic now, you’ll debug faster and write cleaner code when you get to complex decision-making later.
+## 3️⃣ Regular Expressions (RegExp) — Pattern Matching
+
+- Why Use It?
+Strings can only check for exact matches.
+
+- RegExp lets you search for patterns like:
+
+    - All numbers in a text.
+
+    - Words starting with a capital letter.
+
+    - Valid email addresses.
+
+### Example 1 — Simple Match
+
+```dart
+void main() {
+  var regex = RegExp(r'\d+'); // one or more digits
+  print(regex.hasMatch('abc123')); // true
+  print(regex.hasMatch('hello'));  // false
+}
+```
+
+### Example 2 — Extracting Matches
+
+```dart
+void main() {
+  var text = 'Order 123, Item 456, Price 789';
+  var regex = RegExp(r'\d+'); // find all numbers
+
+  for (var match in regex.allMatches(text)) {
+    print(match.group(0)); // 123, 456, 789
+  }
+}
+```
+
+### Example 3 — Replacing
+
+```dart
+void main() {
+  var text = 'My phone is 12345';
+  var regex = RegExp(r'\d+');
+  var hidden = text.replaceAll(regex, '#####');
+  print(hidden); // My phone is #####
+}
+```
+
+## 4️⃣ Checkpoints
+
+- ✅ Build a sentence using `StringBuffer`.
+
+- ✅ Use `RegExp` to find numbers in a string.
+
+- ✅ Replace digits with `#` using `.replaceAll()`.
+
+## 🎯 Day 10 Challenge
+
+1. Use a loop to build a string of numbers from 1 to 100 with `StringBuffer`.
+
+2. Extract all numbers from `"Order 123, Item 456, Price 789"` using `RegExp`.
+
+3. Replace all spaces in `"Hello World From Dart"` with `-`.
+
+## 💡 Pro Tips
+
+Use `StringBuffer` when building long strings in loops (logs, reports, generated text).
+
+Use `RegExp` for validation (emails, phone numbers, IDs) and pattern matching.
+
+Think of `StringBuffer` as the scribe’s whiteboard, and `RegExp` as the detective’s magnifying glass. Together, they give you control over text creation and text analysis.

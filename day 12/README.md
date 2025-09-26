@@ -1,65 +1,81 @@
-# 🎯 Day 12 — Sets in Dart
-## 1️⃣ Story — The VIP Guest List
->Imagine you’re hosting an exclusive event.
+# 🎯 Day 12 — Lists in Dart
+## 1️⃣ Story — The Organized Shelf
+> Imagine you own a library with a long shelf.
 
-- You have a guest list, but you don’t care about the order people arrive.
+- Each slot on the shelf is numbered (index starting at 0).
 
-- You never allow duplicates — if someone’s name is already on the list, you don’t add it again.
+- You can store one book per slot.
 
-- This guest list is your Set in Dart.
-## 2️⃣ Declaring Sets
+- All books on the shelf are of the same type — if it’s a shelf for novels, you can’t suddenly put a cooking pot there (unless you declare it as a “mixed shelf” from the start).
+
+> That shelf is your List in Dart — an ordered collection of items.
+## 2️⃣ Declaring Lists
 ```dart
-// Typed Set
-Set<String> guests = {'Ali', 'Sara', 'IQ'};
+// Typed list
+List<String> names = ['Ali', 'Sara', 'IQ'];
 
 // Inferred type
-var numbers = {1, 2, 3}; // Dart infers Set<int>
+var numbers = [1, 2, 3]; // Dart infers List<int>
 
-// Empty Set
-var emptySet = <String>{};
+// Mixed type list
+List<dynamic> mixed = [1, 'Hello', true];
 ```
-## 3️⃣ Adding & Removing
+## 3️⃣ Accessing & Modifying
 ```dart 
-guests.add('Omar'); // ✅ added
-guests.add('Sara'); // ❌ ignored — already exists
-guests.remove('Ali'); // remove by value
+print(names[0]); // Ali
+names[1] = 'Omar'; // change value
+print(names); // [Ali, Omar, IQ]
 ```
-## 4️⃣ Checking Membership
-``` dart
-print(guests.contains('IQ')); // true
+## 4️⃣ Adding & Removing
+```dart
+names.add('Lara'); // add at end
+names.insert(1, 'Zain'); // insert at index
+names.remove('IQ'); // remove by value
+names.removeAt(0); // remove by index
 ```
 ## 5️⃣ Iterating
 ```dart 
-for (var guest in guests) {
-  print(guest);
+for (var name in names) {
+  print(name);
 }
+
+names.forEach((n) => print(n));
 ```
-## 6️⃣ Set Operations
->Sets shine when you need math‑style operations:
-```dart
-var a = {1, 2, 3};
-var b = {3, 4, 5};
+## 6️⃣ Useful Properties & Methods
+```dart 
+print(names.length); // number of items
+print(names.isEmpty); // true/false
+print(names.contains('Sara')); // true/false
+print(names.indexOf('Omar')); // position
+``` 
+## 7️⃣ Fixed-Length Lists
+``` dart
+var fixed = List<int>.filled(3, 0); // length 3, all values 0
+fixed[1] = 5;
+print(fixed); // [0, 5, 0]
+``` 
+## 8️⃣ Checkpoints
+- ✅ Create a typed list and try adding a wrong type — Dart will stop you.
 
-print(a.union(b));        // {1, 2, 3, 4, 5}
-print(a.intersection(b)); // {3}
-print(a.difference(b));   // {1, 2}
-```
-## 7️⃣ Checkpoints
-- ✅ Try adding a duplicate to a Set — Dart will ignore it.
+- ✅ Use .add() and .insert() to grow the list.
 
-- ✅ Use .union() and .intersection() to combine Sets.
+- ✅ Try .remove() and .removeAt() to shrink it.
 
-- ✅ Compare a Set to a List — notice the lack of duplicates and no guaranteed order.
-
-## Day 12 Challenge
+- ✅ Loop through the list with both for and .forEach().
+## 🎉 Day 12 Challenge
 Write a Dart program that:
 
-1. Creates a Set<String> of your favorite fruits.
+1. Creates a List<String> of your favorite foods.
 
-2. Adds a duplicate fruit and confirms it’s ignored.
+2. Adds two more foods.
 
-3. Creates another Set of fruits and finds the intersection.
+3. Removes one food.
 
-4. Prints the union of both Sets.
+4. Prints the list length and checks if a specific food is in the list.
+
+5. Loops through the list and prints each item.(special)
 --- 
-### 💡 Pro Tip: Sets are perfect when you need **fast lookups** and **no duplicates** — for example, tracking unique user IDs, tags, or visited pages.
+## 💡 Pro Tip: Typed lists (List<int>, List<String>) give you compile‑time safety — they prevent accidental type mixing and make your code more predictable.
+
+
+

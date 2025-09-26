@@ -1,4 +1,5 @@
-# 🎯 Day 16 — Functions in Dart
+# 🎯 Day 17 — Functions in Dart
+
 ## 1️⃣ Story — The Kingdom’s Skilled Workers
 Imagine your Dart kingdom again:
 
