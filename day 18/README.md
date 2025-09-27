@@ -114,9 +114,3 @@ Write a Dart program that:
 
 4. Calls all three functions and prints the results.
 
-
-
-
-
-
-
