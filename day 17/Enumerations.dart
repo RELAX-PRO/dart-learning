@@ -1,4 +1,4 @@
-  enum Weather { sunny, cloudy, rainy, snowy }
+enum Weather { sunny, cloudy, rainy, snowy }
 void main () 
 {
   // uncomment line 6 to see the output
