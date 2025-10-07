@@ -1,0 +1,7 @@
+{
+  "files.encoding": "utf8",
+  // Optional: ensure line endings (use LF or CRLF depending on preference)
+  "files.eol": "\n",
+  // Optional: when creating new files, ensure UTF-8 with BOM is not added
+  "files.autoGuessEncoding": true
+}
